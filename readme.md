@@ -22,12 +22,13 @@ This repository showcases an application that provides a personalized RSS feed u
 
 3. Set up your API keys in the `st.secrets` configuration. Ensure you have API keys for both FirstBatch and Pinecone. A secrets.toml example:
     ```toml
-    custom_algo_id=[algo_id]
+   
+    "custom_algo_id" = "[algo_id]"
    
     [api]
-    pinecone_api_key=[pinecone_key]
-    pinecone_env=[pinecone_env]
-    firstbatch_api_key=[firstbatch_key]
+    "pinecone_api_key"="[pinecone_key]"
+    "pinecone_env"="[pinecone_env]"
+    "firstbatch_api_key"="[firstbatch_key]"
     ```
 
 4. Run the Streamlit app:
