@@ -58,11 +58,11 @@ def main():
     # Initialize Pinecone and FirstBatch
 
     if 'personalized' not in st.session_state:
-        config = Config(batch_size=10, verbose=True, enable_history=True, embedding_size=384)
+        config = Config(batch_size=10, verbose=True, enable_history=True)
         personalized = FirstBatch(api_key=FIRST_BATCH_API_KEY, config=config)
         pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
         index = pinecone.Index("rss-2")
-        personalized.add_vdb("rss_db", Pinecone(index))
+        personalized.add_vdb("rss_db", Pinecone(index, embedding_size=384))
         st.session_state.personalized = personalized
 
         st.session_state.session = st.session_state.personalized.session(AlgorithmLabel.CUSTOM, vdbid="rss_db",custom_id=CUSTOM_ALGO_ID)
